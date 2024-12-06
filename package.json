@@ -1,6 +1,6 @@
 {
   "name": "react-pagination-list-v2",
-  "version": "1.0.5",
+  "version": "1.0.4",
   "description": "A simple react pagination list component inspired from the original react-pagination-list that takes an array of objects and paginates as you want",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -38,8 +38,8 @@
     "@storybook/test": "^8.4.6",
     "babel-loader": "^9.2.1",
     "prop-types": "^15.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": ">=16.8.6 || ^17.0.0 || ^18.0.0",
+    "react-dom": ">=16.8.6 || ^17.0.0 || ^18.0.0",
     "rollup": "^2.79.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
