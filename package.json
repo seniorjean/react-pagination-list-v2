@@ -1,6 +1,6 @@
 {
   "name": "react-pagination-list-v2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple react pagination list component inspired from the original react-pagination-list that takes an array of objects and paginates as you want",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -47,9 +47,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^8.4.6"
   },
-  "peerDependencies": {
-
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
