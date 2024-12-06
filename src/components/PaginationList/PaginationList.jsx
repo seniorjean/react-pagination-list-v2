@@ -63,7 +63,6 @@ for(let i=1; i<=30; i++){
 }
 
 
-
 PaginationList.defaultProps = {
     pageSize: 10,
     renderItem: (item, index) => <UserCard user={item} />,

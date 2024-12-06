@@ -47,10 +47,3 @@ export const Small = {
     label: 'Button',
   },
 };
-
-export const ExtraSmall = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};

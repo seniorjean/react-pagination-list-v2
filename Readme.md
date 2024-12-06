@@ -52,15 +52,15 @@ export default App;
 
 ## Props
 
-| **Prop**         | **Type**                      | **Default**                     | **Description**                                                                                               |
-|------------------|-------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------|
-| data             | Array                         | (required)[]                    | An array of items to be paginated.                                                                             |
-| pageSize         | Number                        | 10                              | The number of items per page.                                                                                 |
-| renderItem       | Function                      | (item,index)=>{</CustomItem />} | A function that takes an item and its index as arguments and returns a React element. Renders each item in the list. |
-| color            | String                        | 'primary'                       | The color of the pagination controls. Valid values are `'primary'`, `'secondary'`, and `'standard'`.             |
-| shape            | String                        | 'circular'                      | The shape of the pagination controls. Valid values are `'circular'` and `'rounded'`.                              |
-| variant          | String                        | 'text'                          | The variant of the pagination controls. Valid values are `'outlined'`, `'text'`, and `'contained'`.              |
-| size             | String                        | 'small'                         | The size of the pagination controls. Valid values are `'small'`, `'medium'`, and `'large'`.                    |
+| **Prop**         | **Type**                      | **Default**                    | **Description**                                                                                               |
+|------------------|-------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------|
+| data             | Array                         | (required)[]                   | An array of items to be paginated.                                                                             |
+| pageSize         | Number                        | 10                             | The number of items per page.                                                                                 |
+| renderItem       | Function                      | (item,index)=>{<CustomItem />} | A function that takes an item and its index as arguments and returns a React element. Renders each item in the list. |
+| color            | String                        | 'primary'                      | The color of the pagination controls. Valid values are `'primary'`, `'secondary'`, and `'standard'`.             |
+| shape            | String                        | 'circular'                     | The shape of the pagination controls. Valid values are `'circular'` and `'rounded'`.                              |
+| variant          | String                        | 'text'                         | The variant of the pagination controls. Valid values are `'outlined'`, `'text'`, and `'contained'`.              |
+| size             | String                        | 'small'                        | The size of the pagination controls. Valid values are `'small'`, `'medium'`, and `'large'`.                    |
 
 This table provides a clear overview of the available props for the `PaginationList` component, their types, default values, and descriptions.
 
