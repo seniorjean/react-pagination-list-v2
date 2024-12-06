@@ -4,7 +4,7 @@ import Pagination from '@mui/material/Pagination';
 
 import PropTypes from "prop-types";
 import {Box, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import {UserCard} from "./UserCard";
+import UserCard from "./UserCard";
 
 const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size}) => {
     const [currentPage, setCurrentPage] = useState(1);
