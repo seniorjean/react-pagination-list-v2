@@ -1,6 +1,6 @@
 {
   "name": "react-pagination-list-v2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple react pagination list component inspired from the original react-pagination-list that takes an array of objects and paginates as you want",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
