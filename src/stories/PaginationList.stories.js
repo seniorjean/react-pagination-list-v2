@@ -21,6 +21,7 @@ export default {
 export const Default = {
     args:{
         renderItem: (item, index) => <UserCard user={item} />,
+        controlStyle: {padding:'20px'},
     }
 }
 

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import {Box, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 import UserCard from "./UserCard";
 
-const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size}) => {
+const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size, controlPosition='center', controlStyle={}}) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate total pages
@@ -29,14 +29,14 @@ const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shap
     };
 
     return (
-        <Box sx={{padding:'10px', width:'100%', maxWidth:'90%', margin:'0px auto'}}>
+        <div>
             {/* Render paginated data */}
             <Box >
                 {getCurrentPageData().map((item, index) => renderItem(item, index))}
             </Box>
 
             {/* Render pagination controls */}
-            <Box display="flex" justifyContent="center" marginTop={2}>
+            <Box display="flex" justifyContent={controlPosition} marginTop={2} style={controlStyle}>
                 <Pagination
                     count={totalPages}
                     color={color}
@@ -45,9 +45,8 @@ const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shap
                     variant={variant}
                     onChange={handlePageChange}
                 />
-
             </Box>
-        </Box>
+        </div>
     );
 }
 
@@ -67,7 +66,9 @@ PaginationList.defaultProps = {
     pageSize: 10,
     renderItem: (item, index) => <UserCard user={item} />,
     data: [...users],
-    color: 'primary'
+    color: 'primary',
+    controlPosition: 'center',
+    controlStyle: {}
 }
 
 PaginationList.propTypes = {
@@ -78,6 +79,8 @@ PaginationList.propTypes = {
     shape: PropTypes.oneOf(['circular', 'rounded',]),
     variant: PropTypes.oneOf(['outlined', 'text',]),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    controlPosition: PropTypes.oneOf(['center', 'left', 'right']),
+    controlStyle: PropTypes.object,
 }
 
 export default PaginationList;
