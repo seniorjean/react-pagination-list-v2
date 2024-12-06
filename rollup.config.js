@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import {terser} from 'rollup-plugin-terser'
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 export default [
     {
         input: './src/index.js', // Entry point of your React component
@@ -28,6 +29,7 @@ export default [
                 minimize:true
             }),
             external(),
+            peerDepsExternal(),
             resolve(),
             terser(),
         ],
@@ -55,6 +57,7 @@ export default [
                 plugins:[],
                 minimize:true
             }),
+            peerDepsExternal(),
             external(),
             nodeResolve(),
             resolve(),
