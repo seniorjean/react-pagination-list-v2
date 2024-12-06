@@ -1,6 +1,6 @@
 import {fn} from '@storybook/test'
-import {PaginationList} from '../components/PaginationList'
-import {UserCard} from "../components/users";
+import PaginationList from '../components/PaginationList'
+import UserCard from "../components/UserCard";
 import * as React from "react";
 
 export default {

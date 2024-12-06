@@ -1,1 +1,1 @@
-export * from 'components/PaginationList'
+export * from './components';

@@ -1,8 +1,8 @@
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 import * as React from "react";
 
-export const UserCard = ({user}) => {
-    return  <Table style={{backgroundColor: '#f9f9f9', borderRadius: '10px', margin: '10px 10px'}}>
+const UserCard = ({user}) => {
+    return <Table style={{backgroundColor: '#f9f9f9', borderRadius: '10px', margin: '10px 10px'}}>
         <TableHead>
             <TableRow>
                 <TableCell style={{border: 'none', fontWeight: 'bold', padding: '5px 10px'}}><span style={{color: '#cb3b2a'}}>Nom</span></TableCell>
@@ -20,3 +20,5 @@ export const UserCard = ({user}) => {
         </TableBody>
     </Table>
 }
+
+export default UserCard;

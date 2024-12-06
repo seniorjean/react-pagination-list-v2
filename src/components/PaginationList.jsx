@@ -4,9 +4,9 @@ import Pagination from '@mui/material/Pagination';
 
 import PropTypes from "prop-types";
 import {Box, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import {UserCard} from "../users";
+import {UserCard} from "./UserCard";
 
-export const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size}) => {
+const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size}) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate total pages
@@ -79,3 +79,5 @@ PaginationList.propTypes = {
     variant: PropTypes.oneOf(['outlined', 'text',]),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
+
+export default PaginationList;

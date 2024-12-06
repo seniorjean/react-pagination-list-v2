@@ -1,2 +1,2 @@
-export PaginationList from './PaginationList';
-export UserCard from './users';
+export { default as PaginationList } from 'PaginationList';
+export { default as UserCard } from 'UserCard';
