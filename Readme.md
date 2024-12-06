@@ -49,20 +49,52 @@ const App = () => (
 
 export default App;
 ```
+### With custom pagination icon
+```jsx
+import React from 'react';
+import  { UserCard , PaginationList } from 'pagination-list';
+
+const users = [];
+
+for (let i = 1; i <= 30; i++) {
+    users.push({
+        id: i,
+        name: `John${i}`,
+        email: `john${i}@gmail.com`,
+        phone: `0123456789${i}`
+    });
+}
+
+const App = () => (
+    <PaginationList
+        data={users}
+        pageSize={10}
+        renderItem={(user) => <UserCard user={user} />}
+        color="primary"
+        shape="circular"
+        variant="contained"
+        size="medium"
+        customPaginationIcon={{previous: ArrowBackIcon, next: ArrowForwardIcon}}
+    />
+);
+
+export default App;
+```
 
 ## Props
 
-| **Prop**         | **Type** | **Default**                    | **Description**                                                                                                      |
-|------------------|----------|--------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| data             | Array    | (required)[]                   | An array of items to be paginated.                                                                                   |
-| pageSize         | Number   | 10                             | The number of items per page.                                                                                        |
-| renderItem       | Function | (item,index)=>{<CustomItem />} | A function that takes an item and its index as arguments and returns a React element. Renders each item in the list. |
-| color            | String   | 'primary'                      | The color of the pagination controls. Valid values are `'primary'`, `'secondary'`, and `'standard'`.                 |
-| shape            | String   | 'circular'                     | The shape of the pagination controls. Valid values are `'circular'` and `'rounded'`.                                 |
-| variant          | String   | 'text'                         | The variant of the pagination controls. Valid values are `'outlined'`, `'text'`, and `'contained'`.                  |
-| size             | String   | 'small'                        | The size of the pagination controls. Valid values are `'small'`, `'medium'`, and `'large'`.                          |
-| controlPosition  | String   | 'center'                       | The controlPosition of the pagination controls. Valid values are `'center'`, `'left'`, and `'right'`.                |
-| controlStyle     | Object   | {}                             | An object of style to be applied to pagination controls.                                                             |
+| **Prop**             | **Type** | **Default**                                 | **Description**                                                                                                      |
+|----------------------|----------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| data                 | Array    | (required)[]                                | An array of items to be paginated.                                                                                   |
+| pageSize             | Number   | 10                                          | The number of items per page.                                                                                        |
+| renderItem           | Function | (item,index)=>{<CustomItem />}              | A function that takes an item and its index as arguments and returns a React element. Renders each item in the list. |
+| color                | String   | 'primary'                                   | The color of the pagination controls. Valid values are `'primary'`, `'secondary'`, and `'standard'`.                 |
+| shape                | String   | 'circular'                                  | The shape of the pagination controls. Valid values are `'circular'` and `'rounded'`.                                 |
+| variant              | String   | 'text'                                      | The variant of the pagination controls. Valid values are `'outlined'`, `'text'`, and `'contained'`.                  |
+| size                 | String   | 'small'                                     | The size of the pagination controls. Valid values are `'small'`, `'medium'`, and `'large'`.                          |
+| controlPosition      | String   | 'center'                                    | The controlPosition of the pagination controls. Valid values are `'center'`, `'left'`, and `'right'`.                |
+| controlStyle         | Object   | {}                                          | An object of style to be applied to pagination controls.                                                             |
+| customPaginationIcon | Object   | {previous: <**PrevIcon** /> next: <**NextIcon** />} |                                                                                                                      |
 
 This table provides a clear overview of the available props for the `PaginationList` component, their types, default values, and descriptions.
 
@@ -77,6 +109,7 @@ The `PaginationList` component accepts the following props:
 - **size** (optional, default: 'medium'): The size of the pagination controls. Valid values are `'small'`, `'medium'`, and `'large'`.
 - **controlPosition** (optional, default: 'center'): The position of the pagination controls. Valid values are `'center'`, `'left'`, and `'right'`.
 - **controlStyle** (optional, default: {}): The style of the pagination controls wrapper. default value is `'{}'`.
+- **customPaginationIcon** (optional, default: {}): The custom pagination icon for controls. default value is `'{}'`, if you want to assign a custom icon just pas an object with **`previous`** and **`next`** property.
 
 ## Example
 
@@ -107,9 +140,10 @@ const App = () => (
         color="secondary"
         shape="rounded"
         variant="contained"
-        size="large"
+        size="small"
         controlPosition='center'
         controlStyle={{padding:'20px'}}
+        customPaginationIcon={{previous: ArrowBackIcon, next: ArrowForwardIcon}}
     />
 );
 

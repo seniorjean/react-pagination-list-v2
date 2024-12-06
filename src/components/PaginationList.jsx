@@ -1,12 +1,46 @@
 import * as React from 'react';
 import {useState} from 'react';
+import {Box, createTheme, PaginationItem, ThemeProvider} from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 
 import PropTypes from "prop-types";
-import {Box, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 import UserCard from "./UserCard";
 
-const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shape, variant, size, controlPosition='center', controlStyle={}}) => {
+const PaginationList = ({
+                            data = [],
+                            pageSize = 10,
+                            renderItem,
+                            color = 'primary',
+                            shape,
+                            variant,
+                            size,
+                            controlPosition = 'center',
+                            controlStyle = {},
+                            showFirstButton = true,
+                            showLastButton = true,
+                            customPaginationIcon = {}
+                        }) => {
+
+
+    const getPrimaryColorPalette = (colorPalette) => {
+
+        if (['primary', 'secondary', 'standard'].includes(colorPalette)) {
+            return {};
+        } else {
+            color = 'primary'
+            return {
+                primary: {
+                    main: colorPalette ?? '#c6183d',
+                },
+            }
+        }
+    }
+
+    const theme = createTheme({
+        palette: getPrimaryColorPalette(color),
+    });
+
+
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate total pages
@@ -29,9 +63,9 @@ const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shap
     };
 
     return (
-        <div>
+        <ThemeProvider theme={theme}>
             {/* Render paginated data */}
-            <Box >
+            <Box>
                 {getCurrentPageData().map((item, index) => renderItem(item, index))}
             </Box>
 
@@ -44,27 +78,35 @@ const PaginationList = ({data=[], pageSize=10, renderItem, color='primary', shap
                     size={size}
                     variant={variant}
                     onChange={handlePageChange}
+                    showFirstButton={showFirstButton}
+                    showLastButton={showLastButton}
+                    renderItem={(item) => (
+                        <PaginationItem
+                            slots={customPaginationIcon}
+                            {...item}
+                        />
+                    )}
                 />
             </Box>
-        </div>
+        </ThemeProvider>
     );
 }
 
 let users = [];
 
-for(let i=1; i<=30; i++){
+for (let i = 1; i <= 30; i++) {
     users.push({
         id: i,
         name: 'John' + i, // or any other naming pattern
-        email: 'john'+i+'@gmail.com',
-        phone: '0123456789'+i
+        email: 'john' + i + '@gmail.com',
+        phone: '0123456789' + i
     });
 }
 
 
 PaginationList.defaultProps = {
     pageSize: 10,
-    renderItem: (item, index) => <UserCard user={item} />,
+    renderItem: (item, index) => <UserCard user={item}/>,
     data: [...users],
     color: 'primary',
     controlPosition: 'center',
@@ -81,6 +123,7 @@ PaginationList.propTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     controlPosition: PropTypes.oneOf(['center', 'left', 'right']),
     controlStyle: PropTypes.object,
+    customPaginationIcon: PropTypes.object,
 }
 
 export default PaginationList;
