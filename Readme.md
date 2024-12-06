@@ -22,7 +22,7 @@ Here's a basic example of how to use the `PaginationList` component in your Reac
 
 ```jsx
 import React from 'react';
-import PaginationList, { UserCard } from 'pagination-list';
+import  { UserCard , PaginationList } from 'pagination-list';
 
 const users = [];
 
@@ -80,7 +80,8 @@ Here's a more detailed example with custom rendering:
 
 ```jsx
 import React from 'react';
-import PaginationList from 'pagination-list';
+import  { PaginationList } from 'pagination-list';
+
 
 const items = [
     { id: 1, label: 'Item 1' },
