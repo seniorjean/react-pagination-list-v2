@@ -7,13 +7,13 @@
 You can install the package using npm or yarn:
 
 ```bash
-npm install react-pagination-list-v2
+npm install react-pagination-list-v2 --legacy-peer-deps
 ```
 
 or
 
 ```bash
-yarn add react-pagination-list-v2
+yarn add react-pagination-list-v2 --legacy-peer-deps
 ```
 
 ## Usage
