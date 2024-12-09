@@ -2,6 +2,11 @@
 
 `PaginationList` is a React component designed to render paginated lists of items. It utilizes Material-UI `Pagination` component and allows for custom item rendering and various styling options. ✨powered by Mr. John 😎🤘
 
+
+## NPM LINK
+
+## 🌍 [react-pagination-list-v2](https://www.npmjs.com/package/react-pagination-list-v2)
+
 ## Installation
 
 You can install the package using npm or yarn:

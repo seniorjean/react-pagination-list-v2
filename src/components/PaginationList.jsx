@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {Box, createTheme, PaginationItem, ThemeProvider} from '@mui/material';
+import {createTheme, PaginationItem, ThemeProvider} from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 
 import PropTypes from "prop-types";
@@ -10,10 +10,10 @@ const PaginationList = ({
                             data = [],
                             pageSize = 10,
                             renderItem,
-                            color = 'primary',
-                            shape,
-                            variant,
-                            size,
+                            color = '#c6183d',
+                            shape = 'rounded',
+                            variant='outlined',
+                            size = 'small',
                             controlPosition = 'center',
                             controlStyle = {},
                             showFirstButton = true,
@@ -65,12 +65,12 @@ const PaginationList = ({
     return (
         <ThemeProvider theme={theme}>
             {/* Render paginated data */}
-            <Box>
+            <div>
                 {getCurrentPageData().map((item, index) => renderItem(item, index))}
-            </Box>
+            </div>
 
             {/* Render pagination controls */}
-            <Box display="flex" justifyContent={controlPosition} marginTop={2} style={controlStyle}>
+            <div style={{display: 'flex', justifyContent: controlPosition, marginTop: '20px', ...controlStyle}}>
                 <Pagination
                     count={totalPages}
                     color={color}
@@ -87,7 +87,7 @@ const PaginationList = ({
                         />
                     )}
                 />
-            </Box>
+            </div>
         </ThemeProvider>
     );
 }
@@ -108,7 +108,7 @@ PaginationList.defaultProps = {
     pageSize: 10,
     renderItem: (item, index) => <UserCard user={item}/>,
     data: [...users],
-    color: 'primary',
+    color: '#c6183d',
     controlPosition: 'center',
     controlStyle: {}
 }
@@ -117,9 +117,9 @@ PaginationList.propTypes = {
     data: PropTypes.array.isRequired,
     pageSize: PropTypes.number,
     renderItem: PropTypes.func,
-    color: PropTypes.oneOf(['primary', 'secondary', 'standard']),
+    color: PropTypes.oneOfType([PropTypes.oneOf(['primary', 'secondary', 'standard']), PropTypes.string]),
     shape: PropTypes.oneOf(['circular', 'rounded',]),
-    variant: PropTypes.oneOf(['outlined', 'text',]),
+    variant: PropTypes.oneOfType([PropTypes.oneOf(['outlined', 'text']), PropTypes.string]),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     controlPosition: PropTypes.oneOf(['center', 'left', 'right']),
     controlStyle: PropTypes.object,
